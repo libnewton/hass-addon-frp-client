@@ -1,7 +1,7 @@
 name: "FRP Client"
 description: "You can use this tool to achieve remote access to local Home Assistant OS by port forwarding"
 url: https://github.com/libnewton/hass-addon-frp-client
-version: "1.0.6"
+version: "1.0.7"
 slug: "frp_client"
 host_network: true
 startup: application
@@ -20,7 +20,6 @@ arch:
   - armv7
   - i386
 options:
-  # Vorhandene Optionen
   serverAddr: "example.com"
   serverPort: 7000
   authToken: "123456789"
@@ -29,12 +28,18 @@ options:
   webServerPassword: "123456789"
   customDomain: "example.com"
   proxyName: "homeassistant"
-  # Neue Textfelder für Dateiinhalte
-  frpc_toml_content: ""
-  frp_token_content: ""
-  frp_ca_crt_content: ""
-  frp_client_crt_content: ""
-  frp_client_key_content: ""
+  # Use the pipe symbol | to indicate multiline defaults, 
+  # this helps the UI understand it's a block
+  frpc_toml_content: |
+    # Paste your frpc.toml here
+  frp_token_content: |
+    # file content
+  frp_ca_crt_content: |
+    # file
+  frp_client_crt_content: |
+    # file
+  frp_client_key_content: |
+    # file
 schema:
   serverAddr: str
   serverPort: int
@@ -44,9 +49,9 @@ schema:
   webServerPassword: str
   customDomain: str
   proxyName: str
-  # Definition als optionale Strings (für Textareas in der UI)
+  # Note: There is no 'textarea' type; 'str?' is the standard way.
   frpc_toml_content: str?
   frp_token_content: str?
   frp_ca_crt_content: str?
   frp_client_crt_content: str?
-  frp_client_key_content: password?
+  frp_client_key_content: str?
