@@ -1,6 +1,6 @@
 #!/usr/bin/env bashio
 WAIT_PIDS=()
-CONFIG_PATH='/homeassistant/frpc/frpc.toml'
+CONFIG_PATH='/share/frpc.toml'
 DEFAULT_CONFIG_PATH='/frpc.toml'
 
 function stop_frpc() {
