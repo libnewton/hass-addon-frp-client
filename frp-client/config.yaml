@@ -1,7 +1,7 @@
 name: "FRP Client"
 description: "You can use this tool to achieve remote access to local Home Assistant OS by port forwarding"
 url: https://github.com/libnewton/hass-addon-frp-client
-version: "1.0.5"
+version: "1.0.6"
 slug: "frp_client"
 host_network: true
 startup: application
@@ -20,6 +20,7 @@ arch:
   - armv7
   - i386
 options:
+  # Vorhandene Optionen
   serverAddr: "example.com"
   serverPort: 7000
   authToken: "123456789"
@@ -28,6 +29,12 @@ options:
   webServerPassword: "123456789"
   customDomain: "example.com"
   proxyName: "homeassistant"
+  # Neue Textfelder für Dateiinhalte
+  frpc_toml_content: ""
+  frp_token_content: ""
+  frp_ca_crt_content: ""
+  frp_client_crt_content: ""
+  frp_client_key_content: ""
 schema:
   serverAddr: str
   serverPort: int
@@ -37,3 +44,9 @@ schema:
   webServerPassword: str
   customDomain: str
   proxyName: str
+  # Definition als optionale Strings (für Textareas in der UI)
+  frpc_toml_content: str?
+  frp_token_content: str?
+  frp_ca_crt_content: str?
+  frp_client_crt_content: str?
+  frp_client_key_content: password?
